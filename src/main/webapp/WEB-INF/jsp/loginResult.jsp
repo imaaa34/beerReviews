@@ -14,6 +14,7 @@ User loginUser = (User) session.getAttribute("loginUser");
 <% if(loginUser != null) { %>
 	<p>Login successfully.</p>
 	<p>Welcome, <%= loginUser.getName() %>!</p>
+	<a href="/beerReviews/Logout">Logout</a>
 	<a href="/beerReviews/Main">Reviews</a>
 <% } else { %>
 	<p>Login failed.</p>
