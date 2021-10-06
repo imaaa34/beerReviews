@@ -9,6 +9,7 @@ User loginUser = (User) session.getAttribute("loginUser");
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <title>beerReviews</title>
 </head>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />

@@ -11,6 +11,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <title>beerReviews</title>
 </head>
 <jsp:include page="/WEB-INF/jsp/header.jsp" />
@@ -37,5 +38,7 @@ text：<input type="text" name="text"><br>
 <p><%= review.getText() %></p>
 <% } %>
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
