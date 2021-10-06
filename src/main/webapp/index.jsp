@@ -13,9 +13,10 @@
 <div class="login-form">
 <form action="/beerReviews/Login" method="post">
 name：<input type="text" name="name"><br>
-password：<input type="password" name="pass"><br>
+pass：<input type="password" name="pass"><br>
 <input type="submit" value="Login">
 </form>
 </div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>
 </html>

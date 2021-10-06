@@ -4,6 +4,7 @@
 <%
 User loginUser = (User) session.getAttribute("loginUser");
 List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
+String errorMsg = (String) request.getAttribute("errorMsg");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,10 +13,15 @@ List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
 <title>beerReviews</title>
 </head>
+<jsp:include page="/WEB-INF/jsp/header.jsp" />
 <body>
 <h1 class="title">All Reviews</h1>
 <p>Hello, <%= loginUser.getName() %>!</p>
 <a href="/beerReviews/Logout">Logout</a><br>
+
+<% if(errorMsg != null) { %>
+<p><%= errorMsg %></p>
+<% } %>
 
 <form action="/beerReviews/Main" method="post">
 beer：<input type="text" name="beerName"><br>
@@ -30,5 +36,6 @@ text：<input type="text" name="text"><br>
 <p><%= review.getArea() %>:</p>
 <p><%= review.getText() %></p>
 <% } %>
+<jsp:include page="/WEB-INF/jsp/footer.jsp" />
 </body>
 </html>

@@ -65,6 +65,9 @@ public class Main extends HttpServlet {
 			Review review = new Review(loginUser.getName(), beerName, area, text);
 			PostReviewLogic postReviewLogic = new PostReviewLogic();
 			postReviewLogic.execute(review, reviewList);
+		} else {
+			// エラーメッセージ追加
+			request.setAttribute("errorMsg", "Form can't be empty.");
 		}
 		
 		// メイン画面にフォワード
