@@ -33,5 +33,7 @@ User loginUser = (User) session.getAttribute("loginUser");
 </c:choose>
 
 <jsp:include page="/WEB-INF/jsp/footer.jsp" />
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

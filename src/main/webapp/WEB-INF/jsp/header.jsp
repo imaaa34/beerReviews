@@ -2,13 +2,10 @@
     pageEncoding="UTF-8"%>
 <nav>
     <div id="sp-menu">
-      <h2>MENU</h2>
       <ul>
-        <li><a href="#">MENU1</a></li>
-        <li><a href="#">MENU2</a></li>
-        <li><a href="#">MENU3</a></li>
-        <li><a href="#">MENU4</a></li>
-        <li><a href="#">MENU5</a></li>
+        <li><a href="/beerReviews/Main">Home</a></li>
+        <li><a href="/beerReviews/Mypage">Mypage</a></li>
+        <li><a href="/beerReviews/Logout">Logout</a></li>
       </ul>
     </div>
 
@@ -19,13 +16,4 @@
         <span></span>
       </a>
     </div>
-
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
 </nav>
