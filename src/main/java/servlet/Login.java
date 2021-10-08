@@ -22,10 +22,11 @@ public class Login extends HttpServlet {
 //		リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
+		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		
 //		Userインスタンスの生成
-		User user = new User(name, pass);
+		User user = new User(name, email, pass);
 		
 //		ログイン処理
 		LoginLogic loginLogic = new LoginLogic();

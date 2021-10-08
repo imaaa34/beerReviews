@@ -1,11 +1,9 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.GetReviewListLogic;
 import model.PostReviewLogic;
 import model.Review;
 import model.User;
@@ -23,14 +22,19 @@ public class Main extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		Reviewsをアプリケーションスコープから取得
-		ServletContext application = this.getServletContext();
-		List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
+//		ServletContext application = this.getServletContext();
+//		List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
+		
+		//  Reviewリストを取得してリクエストスコープに保存
+		GetReviewListLogic getReviewListLogic = new GetReviewListLogic();
+		List<Review> reviewList = getReviewListLogic.execute();
+		request.setAttribute("reviewList", reviewList);
 		
 //		取得できなかった場合は新規作成してアプリケーションスコープに保存
-		if(reviewList == null) {
-			reviewList = new ArrayList<>();
-			application.setAttribute("reviewList", reviewList);
-		}
+//		if(reviewList == null) {
+//			reviewList = new ArrayList<>();
+//			application.setAttribute("reviewList", reviewList);
+//		}
 		
 //		ログインしているかセッションスコープからユーザー情報取得して確認
 		HttpSession session = request.getSession();
@@ -54,8 +58,8 @@ public class Main extends HttpServlet {
 		
 		if(text != null && text.length() != 0) {
 			// アプリケーションスコープに保存されたReviewListを取得
-			ServletContext application = this.getServletContext();
-			List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
+//			ServletContext application = this.getServletContext();
+//			List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
 			
 			// セッションスコープに保存されたユーザー情報を取得
 			HttpSession session = request.getSession();
@@ -64,11 +68,15 @@ public class Main extends HttpServlet {
 			//  ReviewListに追加
 			Review review = new Review(loginUser.getName(), beerName, area, text);
 			PostReviewLogic postReviewLogic = new PostReviewLogic();
-			postReviewLogic.execute(review, reviewList);
+			postReviewLogic.execute(review);
 		} else {
 			// エラーメッセージ追加
 			request.setAttribute("errorMsg", "Form can't be empty.");
 		}
+		//  Reviewリストを取得して、リクエストスコープに保存
+		GetReviewListLogic getReviewListLogic = new GetReviewListLogic();
+		List<Review> reviewList = getReviewListLogic.execute();
+		request.setAttribute("reviewList", reviewList);
 		
 		// メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");

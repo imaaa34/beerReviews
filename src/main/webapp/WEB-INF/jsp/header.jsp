@@ -5,6 +5,7 @@
       <ul>
         <li><a href="/beerReviews/Main">Home</a></li>
         <li><a href="/beerReviews/Mypage">Mypage</a></li>
+        <li><a href="/beerReviews/User">User</a></li>
         <li><a href="/beerReviews/Logout">Logout</a></li>
       </ul>
     </div>

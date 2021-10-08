@@ -13,6 +13,7 @@
 <div class="login-form">
 <form action="/beerReviews/Login" method="post">
 name：<input type="text" name="name"><br>
+email：<input type="email" name="email"><br>
 pass：<input type="password" name="pass"><br>
 <input type="submit" value="Login">
 </form>

@@ -3,7 +3,7 @@
 <%@ page import="model.User, model.Review, java.util.List" %>
 <%
 User loginUser = (User) session.getAttribute("loginUser");
-List<Review> reviewList = (List<Review>) application.getAttribute("reviewList");
+List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
 String errorMsg = (String) request.getAttribute("errorMsg");
 %>
 <!DOCTYPE html>
