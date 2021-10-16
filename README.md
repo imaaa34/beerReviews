@@ -1,2 +1,2 @@
 # beerReviews
-Craft beer review app
+Craft beer review application
